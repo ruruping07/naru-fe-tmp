@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+
+.html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  width: 100vh;
+  height: 100vh;  
+}
+
+.body {
+  margin: 0;
+  width: 100vh;
+  height: 100vh;
+}
+
+.hover\:overflow-y-auto:hover {
+  overflow-y: auto;
+}
+
+@tailwind utilities;

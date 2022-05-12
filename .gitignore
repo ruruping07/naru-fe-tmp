@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# setting env
+.env
+.env.dev
+.env.prod
+.env.test
