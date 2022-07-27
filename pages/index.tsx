@@ -1,6 +1,14 @@
+import React, { useEffect, useState, useCallback } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { gql, useMutation } from '@apollo/client';
+import { addAbortSignal } from 'stream';
+//import RealGrid from '../components/common/grid/realGrid';
+import { data, fields, columns } from '../data/test/realgrid-data'
+import { IRealGridProps } from '../interface/components/IRealGird'
+import dynamic from 'next/dynamic';
+
+const RealGrid = dynamic<IRealGridProps>(() => import('../components/common/grid/realGrid'), { ssr: false })
 
 export const LOGIN_MUTATION = gql`
   mutation loginMutation($loginInput: LoginInput!) {
@@ -11,8 +19,7 @@ export const LOGIN_MUTATION = gql`
       token
     }
   }
-`;
-
+`
 const Home: NextPage = () => {
   return (
     <div className="">
@@ -26,6 +33,15 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold underline">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <div>-----</div>
+        <RealGrid
+          gridTitle='aa'
+          loading={false}
+          id="realgrid2"
+          fields={fields}
+          columns={columns}
+          rows={data}
+        />
       </main>
     </div>
   )

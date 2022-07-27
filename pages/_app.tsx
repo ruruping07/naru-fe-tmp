@@ -1,15 +1,23 @@
 import '../styles/globals.css'
+import '../public/realgrid.2.5.4/realgrid-style.css'
+
 import type { AppProps } from 'next/app'
-import { ApolloProvider } from "@apollo/client"
-import client from "../libs/apollo"
+import Head from 'next/head';
+import Layout from "../components/Layout"
+//import { ApolloProvider } from "@apollo/client"
+//import client from "../libs/apollo"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Head>
+        <script src="/realgrid.2.5.4/realgrid-lic.js" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
-  // return <Component {...pageProps} />
 }
 
 export default MyApp
