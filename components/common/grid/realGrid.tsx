@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { IRealGridProps } from '../../../interface/components/IRealGird'
-import Link from 'next/link';
 
 const RealGird: React.FC<IRealGridProps> = (props) => {
   const { gridTitle, loading, id, fields, columns, rows, addFieldColumn } = props;
@@ -79,7 +78,6 @@ const RealGird: React.FC<IRealGridProps> = (props) => {
 
   return (
     <>
-      <h2>{gridTitle}</h2>
       <div id={id} className="grid-style" ref={realgridRef}></div>
     </>
   )
